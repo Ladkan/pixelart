@@ -470,7 +470,7 @@ async function processImage(inputFile, targetWidth = 96, scale = 16, drawGrid = 
                 
                 // Create legend
                 const legend = createPaletteLegend(paletteNamed);
-                console.log(pixelArt)
+
                 resolve({
                     pixelArt,
                     numbersImg,
@@ -486,3 +486,4 @@ async function processImage(inputFile, targetWidth = 96, scale = 16, drawGrid = 
         img.src = URL.createObjectURL(inputFile);
     });
 }
+
