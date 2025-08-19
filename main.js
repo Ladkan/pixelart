@@ -17,6 +17,22 @@ document.querySelector("#app").innerHTML = `
             </div>        
             
             <div class="controls">
+
+                <div class="control-group">
+                    <label for="widthInput">Pixel Art Width:</label>
+                    <input type="number" id="widthInput" value="96" min="16" max="256">
+                </div>
+                
+                <div class="control-group">
+                    <label for="scaleInput">Scale Factor:</label>
+                    <input type="number" id="scaleInput" value="16" min="8" max="32">
+                </div>
+                <div class="control-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="gridCheckbox" checked>
+                        <label for="gridCheckbox">Show Grid Lines</label>
+                    </div>
+                </div>
                 <div class="control-group">
                     <div class="checkbox-group">
                         <input type="checkbox" id="freecolorCheck">
@@ -100,7 +116,11 @@ function initApp() {
     results.style.display = "none";
 
     try {
-      const result = await processImage(fileInput.files[0]);
+      const result = await processImage(
+        fileInput.files[0],
+        parseInt(document.getElementById('widthInput').value),
+        parseInt(document.getElementById('scaleInput').value),
+        document.getElementById('gridCheckbox').checked);
 
       displayEnhancedResults(result);
     } catch (error) {
