@@ -566,7 +566,7 @@ async function processImage(
 
         // Create legend
         const legend = createPaletteLegend(paletteNamed);
-        console.log(pixelArt);
+        
         resolve({
           pixelArt,
           numbersImg,
@@ -582,3 +582,4 @@ async function processImage(
     img.src = URL.createObjectURL(inputFile);
   });
 }
+
